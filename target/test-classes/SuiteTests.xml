@@ -1,0 +1,13 @@
+<?xml version ="1.0"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Testing Suite">
+    <test name = "Tests SouthSystem" >
+        <classes>
+            <class name = "com.digitalQA.tests.DeleteSimulacaoTests"/>
+            <class name = "com.digitalQA.tests.GetRestricaoTests"/>
+            <class name = "com.digitalQA.tests.GetSimulacaoTests"/>
+            <class name = "com.digitalQA.tests.PostSimulacaoTests"/>
+            <class name = "com.digitalQA.tests.PutSimulacaoTests"/>
+        </classes>
+    </test>
+</suite>

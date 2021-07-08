@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Testing Suite]">
+  <test thread-count="5" verbose="0" name="Tests SouthSystem(failed)">
+    <classes>
+      <class name="com.digitalQA.tests.PostSimulacaoTests">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforSuite"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="deveCriarSimulacaoComFalha"/>
+          <include name="deveCriarSimulacaoComSucesso"/>
+        </methods>
+      </class> <!-- com.digitalQA.tests.PostSimulacaoTests -->
+      <class name="com.digitalQA.tests.GetSimulacaoTests">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforSuite"/>
+          <include name="afterTest"/>
+          <include name="deveConsultarSimulacoesVazias"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- com.digitalQA.tests.GetSimulacaoTests -->
+    </classes>
+  </test> <!-- Tests SouthSystem(failed) -->
+</suite> <!-- Failed suite [Testing Suite] -->

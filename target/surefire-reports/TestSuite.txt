@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 2.283 sec <<< FAILURE! - in TestSuite
+deveConsultarSimulacoesVazias(com.digitalQA.tests.GetSimulacaoTests)  Time elapsed: 0.016 sec  <<< FAILURE!
+java.lang.AssertionError: validacao Status Code expected [204] but found [200]
+	at com.digitalQA.tests.GetSimulacaoTests.deveConsultarSimulacoesVazias(GetSimulacaoTests.java:50)
+
+deveCriarSimulacaoComFalha(com.digitalQA.tests.PostSimulacaoTests)  Time elapsed: 0.016 sec  <<< FAILURE!
+java.lang.AssertionError: validacao Status Code expected [400] but found [201]
+	at com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComFalha(PostSimulacaoTests.java:60)
+
+deveCriarSimulacaoComSucesso(com.digitalQA.tests.PostSimulacaoTests)  Time elapsed: 0.009 sec  <<< FAILURE!
+java.lang.AssertionError: validacao Status Code expected [201] but found [400]
+	at com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComSucesso(PostSimulacaoTests.java:32)
+

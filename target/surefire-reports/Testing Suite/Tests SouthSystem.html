@@ -1,0 +1,270 @@
+<html>
+<head>
+<title>TestNG:  Tests SouthSystem</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Tests SouthSystem</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Jul 08 00:13:12 BRT 2021</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1800 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.digitalQA.tests.GetSimulacaoTests.deveConsultarSimulacoesVazias()'><b>deveConsultarSimulacoesVazias</b><br>Test class: com.digitalQA.tests.GetSimulacaoTests</td>
+<td><div><pre>java.lang.AssertionError: validacao Status Code expected [204] but found [200]
+	at com.digitalQA.tests.GetSimulacaoTests.deveConsultarSimulacoesVazias(GetSimulacaoTests.java:50)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1138845999", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1138845999'><pre>java.lang.AssertionError: validacao Status Code expected [204] but found [200]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at com.digitalQA.tests.GetSimulacaoTests.deveConsultarSimulacoesVazias(GetSimulacaoTests.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>com.digitalQA.tests.GetSimulacaoTests@5ce81285</td></tr>
+<tr>
+<td title='com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComFalha()'><b>deveCriarSimulacaoComFalha</b><br>Test class: com.digitalQA.tests.PostSimulacaoTests</td>
+<td><div><pre>java.lang.AssertionError: validacao Status Code expected [400] but found [201]
+	at com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComFalha(PostSimulacaoTests.java:60)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace382044126", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace382044126'><pre>java.lang.AssertionError: validacao Status Code expected [400] but found [201]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComFalha(PostSimulacaoTests.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>com.digitalQA.tests.PostSimulacaoTests@78c03f1f</td></tr>
+<tr>
+<td title='com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComSucesso()'><b>deveCriarSimulacaoComSucesso</b><br>Test class: com.digitalQA.tests.PostSimulacaoTests</td>
+<td><div><pre>java.lang.AssertionError: validacao Status Code expected [201] but found [400]
+	at com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComSucesso(PostSimulacaoTests.java:32)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace551421413", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace551421413'><pre>java.lang.AssertionError: validacao Status Code expected [201] but found [400]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at com.digitalQA.tests.PostSimulacaoTests.deveCriarSimulacaoComSucesso(PostSimulacaoTests.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>com.digitalQA.tests.PostSimulacaoTests@78c03f1f</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.digitalQA.tests.PutSimulacaoTests.alterarSimulacaoComCpfInexistente()'><b>alterarSimulacaoComCpfInexistente</b><br>Test class: com.digitalQA.tests.PutSimulacaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.PutSimulacaoTests@5ec0a365</td></tr>
+<tr>
+<td title='com.digitalQA.tests.PutSimulacaoTests.deveAlterarSimulacaoComSucesso()'><b>deveAlterarSimulacaoComSucesso</b><br>Test class: com.digitalQA.tests.PutSimulacaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.PutSimulacaoTests@5ec0a365</td></tr>
+<tr>
+<td title='com.digitalQA.tests.GetSimulacaoTests.deveConsultarSimulacaoInexistentePeloCpf()'><b>deveConsultarSimulacaoInexistentePeloCpf</b><br>Test class: com.digitalQA.tests.GetSimulacaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.GetSimulacaoTests@5ce81285</td></tr>
+<tr>
+<td title='com.digitalQA.tests.GetSimulacaoTests.deveConsultarSimulacaoPeloCpf()'><b>deveConsultarSimulacaoPeloCpf</b><br>Test class: com.digitalQA.tests.GetSimulacaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.GetSimulacaoTests@5ce81285</td></tr>
+<tr>
+<td title='com.digitalQA.tests.GetSimulacaoTests.deveConsultarTodasSimulacoes()'><b>deveConsultarTodasSimulacoes</b><br>Test class: com.digitalQA.tests.GetSimulacaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.GetSimulacaoTests@5ce81285</td></tr>
+<tr>
+<td title='com.digitalQA.tests.DeleteSimulacaoTests.deveDeletarSimulacaoComSucesso()'><b>deveDeletarSimulacaoComSucesso</b><br>Test class: com.digitalQA.tests.DeleteSimulacaoTests</td>
+<td></td>
+<td>1</td>
+<td>com.digitalQA.tests.DeleteSimulacaoTests@66480dd7</td></tr>
+<tr>
+<td title='com.digitalQA.tests.DeleteSimulacaoTests.deveDeletarSimulacaoIdInvalido()'><b>deveDeletarSimulacaoIdInvalido</b><br>Test class: com.digitalQA.tests.DeleteSimulacaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.DeleteSimulacaoTests@66480dd7</td></tr>
+<tr>
+<td title='com.digitalQA.tests.GetRestricaoTests.deveVerificarCPFRestricao()'><b>deveVerificarCPFRestricao</b><br>Test class: com.digitalQA.tests.GetRestricaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.GetRestricaoTests@52a86356</td></tr>
+<tr>
+<td title='com.digitalQA.tests.GetRestricaoTests.deveVerificarCPFSemRestricao()'><b>deveVerificarCPFSemRestricao</b><br>Test class: com.digitalQA.tests.GetRestricaoTests</td>
+<td></td>
+<td>0</td>
+<td>com.digitalQA.tests.GetRestricaoTests@52a86356</td></tr>
+</table><p>
+</body>
+</html>

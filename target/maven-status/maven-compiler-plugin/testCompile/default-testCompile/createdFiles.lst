@@ -1,0 +1,9 @@
+com\digitalQA\tests\GetRestricaoTests.class
+com\digitalQA\utils\ExcelUtils.class
+com\digitalQA\utils\ExtentReportsUtils.class
+com\digitalQA\GlobalParameters.class
+com\digitalQA\bases\TestBase.class
+com\digitalQA\tests\DeleteSimulacaoTests.class
+com\digitalQA\tests\GetSimulacaoTests.class
+com\digitalQA\tests\PutSimulacaoTests.class
+com\digitalQA\tests\PostSimulacaoTests.class
