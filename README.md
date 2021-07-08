@@ -1,10 +1,12 @@
 # Desafio testes de API
+
 - Arquitetura Projeto
     - Linguagem - Java
     - Orquestrador de testes - [Maven 3.6.3](https://maven.apache.org/download.cgi)
     - Relatório de testes automatizados - [ExtentReports 4.1.3](https://mvnrepository.com/artifact/com.aventstack/extentreports/4.1.3)
     - Framework interação com API - [Rest Assured 4.3.0](https://github.com/rest-assured/rest-assured/wiki/Downloads)
     - Denpendências do projeto (pom.xml) - [Maven Repository](https://mvnrepository.com/)
+    - Foram utilizadas para asserções RestAssured e TestNg. 
 
 ##  Testes realizados
 ### Restrições
@@ -85,3 +87,9 @@ Remove uma simulação previamente cadastrada pelo seu ID.
 - [X] Retorna o HTTP Status 204 se simulação for removida com sucesso
 
 - [X] Retorna o HTTP Status 404 com a mensagem "Simulação não encontrada" se não existir a simulação pelo ID informado
+ * Obs: Na documentação da API não existe status 404
+
+
+##  Observações Finais
+    * Podendo trabalhar com a massa de dados alguns testes poderiam ficar mais acertivos e sem dependências.
+    * Algumas mensagens do response estavam incoerentes com a documentação, tratei as mensagens conforme documentação da API
