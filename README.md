@@ -12,8 +12,7 @@
 ##### Consultar uma restrição pelo CPF
 `GET <host>/api/v1/restricoes/{cpf}`
 
--[x] Se não possui restrição do HTTP Status 204 é retornado 
-
+-[x]Se não possui restrição do HTTP Status 204 é retornado 
 -[X] Se possui restrição o HTTP Status 200 é retornado com a mensagem "O CPF 99999999999 possui restrição"
 
 * Realizado consulta em um CPF sem restrição e aguardando status 204
