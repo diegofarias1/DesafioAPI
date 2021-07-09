@@ -1,59 +1,60 @@
 package com.digitalQA.tests;
 
 import com.digitalQA.bases.TestBase;
+import com.digitalQA.requests.DeleteSimulacaoRequest;
+import com.digitalQA.requests.PostSimulacaoRequest;
+import com.digitalQA.requests.PutSimulacaoRequest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
 
 public class PutSimulacaoTests extends TestBase {
+    PostSimulacaoRequest postSimulacaoRequest;
+    PutSimulacaoRequest putSimulacaoRequest;
+    DeleteSimulacaoRequest deleteSimulacaoRequest;
 
     @Test
     public void deveAlterarSimulacaoComSucesso() {
-        RestAssured.baseURI = "http://localhost:8080/api/v1/simulacoes";
-
         int statusCodeEsperado = HttpStatus.SC_OK;
-        String numCpf = "34702707090";
-        String jsonBody2 ="{ \"nome\":\"Nome alterado\",\"cpf\":\"34702707090\",\"email\":\"fulano@gmail.com\",\"valor\":1200,\"parcelas\":3,\"seguro\":true}";
 
-        //Fluxo
-        Response response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(jsonBody2)
-                .when()
-                .put(numCpf)
-                .then()
-                .extract().response();
+        //Fluxo Post para manipulação de dados
+        postSimulacaoRequest = new PostSimulacaoRequest();
+        postSimulacaoRequest.setJsonBody("src/test/java/com/digitalQA/jsons/PostSimulacaoJson.json");
+        Response responsePost = postSimulacaoRequest.executeRequest();
+
+        // Fluxo Put alterando dado com sucesso
+        String numCpf = responsePost.body().jsonPath().get("cpf");
+        putSimulacaoRequest = new PutSimulacaoRequest(numCpf);
+        putSimulacaoRequest.setJsonBody("src/test/java/com/digitalQA/jsons/PutSimulacaoJson.json");
+        Response response = putSimulacaoRequest.executeRequest();
 
         //Asserções
         Assert.assertEquals(response.statusCode(), statusCodeEsperado, "validacao Status Code");
-        Assert.assertEquals(response.body().jsonPath().get("nome"), "Nome alterado", "validacao nome");
+        Assert.assertEquals(response.body().jsonPath().get("nome"), "Nome Alterado", "validacao nome");
         Assert.assertEquals(response.body().jsonPath().get("cpf"), numCpf, "validacao cpf");
-        Assert.assertEquals(response.body().jsonPath().get("email"), "fulano@gmail.com", "validacao email");
-        Assert.assertEquals(response.body().jsonPath().get("valor").toString(), "1200.0", "validacao valor");
+        Assert.assertEquals(response.body().jsonPath().get("email"), "email@email.com", "validacao email");
+        Assert.assertEquals(response.body().jsonPath().get("valor").toString(), "1200.00", "validacao valor");
         Assert.assertEquals(response.body().jsonPath().get("parcelas").toString(), "3", "validacao parcelas");
         Assert.assertEquals(response.body().jsonPath().get("seguro").toString(), "true", "validacao seguro");
+
+        //Tratando massa de dados
+        String id = responsePost.body().jsonPath().get("id").toString();
+        deleteSimulacaoRequest = new DeleteSimulacaoRequest(id);
+        deleteSimulacaoRequest.executeRequest();
     }
 
     @Test
     public void alterarSimulacaoComCpfInexistente() {
-        RestAssured.baseURI = "http://localhost:8080/api/v1/simulacoes";
-
         int statusCodeEsperado = HttpStatus.SC_NOT_FOUND;
-        String jsonBody2 ="{ \"id\":11,\"nome\":\"Nome alterado\",\"cpf\":\"11111111111\",\"email\":\"fulano@gmail.com\",\"valor\":11000,\"parcelas\":3,\"seguro\":true}";
 
         //Fluxo
-        Response response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(jsonBody2)
-                .when()
-                .put("00000000000")
-                .then()
-                .extract().response();
+        putSimulacaoRequest = new PutSimulacaoRequest("99999999999");
+        putSimulacaoRequest.setJsonBody("src/test/java/com/digitalQA/jsons/PutSimulacaoJson.json");
+        Response response = putSimulacaoRequest.executeRequest();
 
         //Asserções
         Assert.assertEquals(response.statusCode(), statusCodeEsperado, "validacao Status Code");

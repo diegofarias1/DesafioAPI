@@ -1,8 +1,7 @@
 package com.digitalQA.tests;
 
 import com.digitalQA.bases.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
+import com.digitalQA.requests.GetSimulacaoRequest;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
@@ -10,41 +9,31 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
-import static io.restassured.RestAssured.given;
 
 public class GetSimulacaoTests extends TestBase {
+    GetSimulacaoRequest getSimulacaoRequest;
 
     @Test
     public void deveConsultarTodasSimulacoes() {
-        RestAssured.baseURI = "http://localhost:8080/api/v1/simulacoes/";
         int statusCodeEsperado = HttpStatus.SC_OK;
 
         //Fluxo
-        Response response = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get()
-                .then()
-                .extract().response();
-        ArrayList<String> quantidade =response.body().jsonPath().get();
+        getSimulacaoRequest = new GetSimulacaoRequest();
+        Response response = getSimulacaoRequest.executeRequest();
+        ArrayList<String> quantidade = response.body().jsonPath().get();
 
         //Asserções
         Assert.assertEquals(response.statusCode(), statusCodeEsperado, "validacao Status Code");
-        Assert.assertTrue(quantidade.size()>=1, "validacao quantidade registros");
+        Assert.assertTrue(quantidade.size() >= 1, "validacao quantidade registros");
     }
 
     @Test
     public void deveConsultarSimulacoesVazias() {
-        RestAssured.baseURI = "http://localhost:8080/api/v1/simulacoes/";
         int statusCodeEsperado = HttpStatus.SC_NO_CONTENT;
 
         //Fluxo
-        Response response = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get()
-                .then()
-                .extract().response();
+        getSimulacaoRequest = new GetSimulacaoRequest();
+        Response response = getSimulacaoRequest.executeRequest();
 
         //Asserções
         Assert.assertEquals(response.statusCode(), statusCodeEsperado, "validacao Status Code");
@@ -52,36 +41,32 @@ public class GetSimulacaoTests extends TestBase {
 
     @Test
     public void deveConsultarSimulacaoPeloCpf() {
-        RestAssured.baseURI = "http://localhost:8080/api/v1/simulacoes/";
         int statusCodeEsperado = HttpStatus.SC_OK;
 
-        String numCpf = "34702707090";
+        //Fluxo Pegando Valor CPF
+        getSimulacaoRequest = new GetSimulacaoRequest();
+        Response responseSimulacao = getSimulacaoRequest.executeRequest();
+        String numCpf = responseSimulacao.body().jsonPath().get("[0].cpf");
 
-        Response response = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get(numCpf)
-                .then()
-                .extract().response();
+        //Fluxo Consultando Simulacao pelo primeiro CPF encontrado
+        getSimulacaoRequest = new GetSimulacaoRequest(numCpf);
+        Response response = getSimulacaoRequest.executeRequest();
 
+        //Asserções
         Assert.assertEquals(response.statusCode(), statusCodeEsperado, "validacao Status Code");
         Assert.assertTrue(response.body().jsonPath().get("cpf").toString().contains(numCpf), "validacao cpf");
     }
 
     @Test
     public void deveConsultarSimulacaoInexistentePeloCpf() {
-        RestAssured.baseURI = "http://localhost:8080/api/v1/simulacoes/";
         int statusCodeEsperado = HttpStatus.SC_NOT_FOUND;
-
         String numCpf = "99999999999";
 
-        Response response = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get(numCpf)
-                .then()
-                .extract().response();
+        //Fluxo
+        getSimulacaoRequest = new GetSimulacaoRequest(numCpf);
+        Response response = getSimulacaoRequest.executeRequest();
 
+        //Asserções
         Assert.assertEquals(response.statusCode(), statusCodeEsperado, "validacao Status Code");
         Assert.assertTrue(response.body().jsonPath().get("mensagem").toString().contains("CPF 99999999999 não encontrado"), "validacao Mensagem");
     }

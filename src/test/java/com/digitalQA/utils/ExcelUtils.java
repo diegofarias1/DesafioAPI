@@ -11,17 +11,12 @@ public class ExcelUtils {
     static XSSFWorkbook workbook;
     static XSSFSheet sheet;
 
-    public ExcelUtils(String excelPath, String sheetName) throws IOException{
+    public ExcelUtils(String excelPath, String sheetName) throws IOException {
         workbook = new XSSFWorkbook(excelPath);
         sheet = workbook.getSheet(sheetName);
     }
 
-    public static Integer getRowCount() {
-        int rowCount = sheet.getPhysicalNumberOfRows();
-        return rowCount;
-    }
-
-    public static Object getCellData(int rowNum, int colNum)  {
+    public static Object getCellData(int rowNum, int colNum) {
         DataFormatter formatter = new DataFormatter();
         Object value = formatter.formatCellValue(sheet.getRow(rowNum).getCell(colNum));
         return value;
